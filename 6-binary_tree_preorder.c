@@ -1,0 +1,17 @@
+#include "binary_trees.h"
+
+/**
+ * binary_tree_preorder - displays bt using preorder traversal
+ * @tree: pointer to root node in tree/subtree
+ * @func: pointer to function to call that has node n value as param
+ *
+ * Return: nothing if reach leaf node
+ */
+void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int))
+{
+	if (tree == NULL)
+		return;
+	func(tree->n);
+	binary_tree_preorder(tree->left, func);
+	binary_tree_preorder(tree->right, func);
+}
